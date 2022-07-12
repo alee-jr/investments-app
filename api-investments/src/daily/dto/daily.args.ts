@@ -3,9 +3,6 @@ import { ArgsType, Field } from '@nestjs/graphql';
 @ArgsType()
 export class DailyArgs {
   @Field()
-  function: string;
-
-  @Field()
   symbol: string;
 
   @Field({ nullable: true })
@@ -13,7 +10,4 @@ export class DailyArgs {
 
   @Field({ nullable: true })
   datatype?: string;
-
-  @Field()
-  apikey: string;
 }

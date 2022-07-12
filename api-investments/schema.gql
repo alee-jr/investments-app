@@ -40,6 +40,6 @@ type NewsSentimentType {
 }
 
 type Query {
-  daily(function: String!, symbol: String!, outputsize: String, datatype: String, apikey: String!): [DailyType!]!
-  newsSentiment(function: String!, tickers: String, topics: String, timeFrom: String, timeTo: String, sort: String, limit: Float, apikey: String!): [NewsSentimentType!]!
+  daily(symbol: String!, outputsize: String, datatype: String): [DailyType!]!
+  newsSentiment(tickers: String, topics: String, timeFrom: String, timeTo: String, sort: String, limit: Float): [NewsSentimentType!]!
 }

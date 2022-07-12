@@ -10,9 +10,15 @@ import { DailyType } from './dto/daily.type';
 @Injectable()
 export class DailyService {
   private apiUrl: string;
+  private apikey: string;
 
   constructor(private readonly httpService: HttpService) {
     this.apiUrl = process.env.ALPHA_API_URL;
+    this.apikey = process.env.ALPHA_API_KEY;
+
+    if (!this.apikey) {
+      this.apikey = '9TVXPG5ISQ47OAVJ';
+    }
 
     if (!this.apiUrl) {
       this.apiUrl = 'https://www.alphavantage.co/query';
@@ -20,7 +26,12 @@ export class DailyService {
   }
 
   async findAll(dailyArgs: DailyArgs): Promise<DailyType[]> {
-    const parsedParams = parseParamsObject(dailyArgs);
+    const args = {
+      ...dailyArgs,
+      function: 'TIME_SERIES_DAILY',
+      apikey: this.apikey,
+    };
+    const parsedParams = parseParamsObject(args);
     const url = `${this.apiUrl}?${parsedParams}`;
     try {
       const response = await lastValueFrom(this.httpService.get(url));

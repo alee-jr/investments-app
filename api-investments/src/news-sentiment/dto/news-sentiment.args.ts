@@ -2,9 +2,6 @@ import { ArgsType, Field } from '@nestjs/graphql';
 
 @ArgsType()
 export class NewsSentimentArgs {
-  @Field()
-  function: 'NEWS_SENTIMENT';
-
   @Field({ nullable: true })
   tickers?: string;
 
@@ -22,7 +19,4 @@ export class NewsSentimentArgs {
 
   @Field({ nullable: true })
   limit?: number;
-
-  @Field()
-  apikey: string;
 }
