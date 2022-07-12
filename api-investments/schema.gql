@@ -3,12 +3,12 @@
 # ------------------------------------------------------
 
 type DailyType {
-  open: String!
-  high: String!
-  low: String!
-  close: String!
-  volume: String!
-  date: String!
+  open: String
+  high: String
+  low: String
+  close: String
+  volume: String
+  date: String
 }
 
 type TickerSentimentType {
@@ -33,10 +33,10 @@ type NewsSentimentType {
   source: String
   source_domain: String
   category_within_source: String
-  topics: [TopicsType!]!
+  topics: [TopicsType!]
   overall_sentiment_score: Float
   overall_sentiment_label: String
-  ticker_sentiment: [TickerSentimentType!]!
+  ticker_sentiment: [TickerSentimentType!]
 }
 
 type Query {

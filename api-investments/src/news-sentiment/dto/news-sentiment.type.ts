@@ -31,7 +31,7 @@ export class NewsSentimentType {
   @Field({ nullable: true })
   category_within_source?: string;
 
-  @Field(() => [TopicsType])
+  @Field(() => [TopicsType], { nullable: true })
   topics?: TopicsType[];
 
   @Field({ nullable: true })
@@ -40,6 +40,6 @@ export class NewsSentimentType {
   @Field({ nullable: true })
   overall_sentiment_label?: string;
 
-  @Field(() => [TickerSentimentType])
-  ticker_sentiment: TickerSentimentType[];
+  @Field(() => [TickerSentimentType], { nullable: true })
+  ticker_sentiment?: TickerSentimentType[];
 }
