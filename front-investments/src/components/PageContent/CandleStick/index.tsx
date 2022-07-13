@@ -3,7 +3,7 @@ import _ from "lodash";
 import { useEffect, useState } from "react";
 import { Daily } from "../../../types/daily.type";
 import Graphs from "../../Graphs";
-import { Title, Container } from "./styles";
+import { Container } from "./styles";
 
 const queryAllDaily = gql`
   query {
@@ -113,7 +113,6 @@ export default function CandleStick() {
   };
   return (
     <Container>
-      {/* <Title>Gráfico de preço do ativo GOOG</Title> */}
       <Graphs options={options} />
     </Container>
   );
