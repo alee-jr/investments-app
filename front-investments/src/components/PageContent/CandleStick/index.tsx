@@ -1,9 +1,9 @@
 import { gql, useQuery } from "@apollo/client";
 import _ from "lodash";
+import { useEffect, useState } from "react";
 import { Daily } from "../../../types/daily.type";
 import Graphs from "../../Graphs";
-import { Container } from "../styles";
-import { Title } from "./styles";
+import { Title, Container } from "./styles";
 
 const queryAllDaily = gql`
   query {
@@ -20,25 +20,25 @@ const queryAllDaily = gql`
 
 export default function CandleStick() {
   const { data, loading, error } = useQuery(queryAllDaily);
+  const [daily, setDaily] = useState<Daily[]>([]);
 
-  if (loading) {
-    return <></>;
-  }
-
-  const daily = data && data.daily;
+  useEffect(() => {
+    if (!loading && data && data.daily) {
+      setDaily(data.daily);
+    }
+  }, [data, loading]);
 
   const rawData =
-    daily &&
+    daily.length > 0 &&
     daily.map((item: Daily) => Object.values(_.omit(item, "date", "volume")));
 
-  const candleData = rawData.map((item: string[]) => [
-    +item[0],
-    +item[3],
-    +item[2],
-    +item[1],
-  ]);
+  const candleData =
+    rawData &&
+    rawData.map((item: string[]) => [+item[0], +item[3], +item[2], +item[1]]);
 
-  const dates = daily.map((item: Daily) => item.date.replaceAll("-", "/"));
+  const dates =
+    daily.length > 0 &&
+    daily.map((item: Daily) => item.date.replaceAll("-", "/"));
 
   const options = {
     tooltip: {
@@ -70,9 +70,9 @@ export default function CandleStick() {
       axisLine: { lineStyle: { color: "#8392A5" } },
     },
     grid: {
-      left: 0,
-      top: 0,
-      right: 0,
+      left: 40,
+      top: 20,
+      right: 40,
       bottom: 80,
     },
     dataZoom: [
@@ -113,7 +113,7 @@ export default function CandleStick() {
   };
   return (
     <Container>
-      <Title>Gráfico de preço do ativo GOOG</Title>
+      {/* <Title>Gráfico de preço do ativo GOOG</Title> */}
       <Graphs options={options} />
     </Container>
   );

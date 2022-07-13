@@ -5,6 +5,15 @@ export interface ReactEChartsProps {
   theme?: "light" | "dark";
 }
 
-export default function Graphs({ options, theme = "dark" }: ReactEChartsProps) {
-  return <ReactECharts option={options} theme={theme} />;
+export default function Graphs({ options, theme }: ReactEChartsProps) {
+  return (
+    <ReactECharts
+      style={{
+        height: "100%",
+        width: "100%",
+      }}
+      option={options}
+      theme={theme}
+    />
+  );
 }
