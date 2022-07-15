@@ -6,11 +6,10 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
   padding: 10px 30px;
   border-bottom: 1px solid ${(prop) => prop.theme.colors.tertiary};
-
+  justify-content: space-between;
   > p {
     margin: 0;
   }

@@ -2,6 +2,7 @@
 import moment from "moment";
 import { NewsSentiment } from "../../../../types/news-sentiment.type";
 import { Container, Content, Title, Image, Group } from "./styles";
+import Tag from "./Tag";
 
 interface ListProps {
   news: NewsSentiment[];
@@ -11,7 +12,7 @@ export default function List(props: ListProps) {
   return (
     <Container>
       {props.news &&
-        props.news.slice(1, 10).map((item, index) => (
+        props.news.map((item, index) => (
           <Content key={index}>
             <Group>
               <div>
@@ -33,6 +34,7 @@ export default function List(props: ListProps) {
                 </span>
               </div>
             </Group>
+            <Tag label={item.overall_sentiment_label} />
           </Content>
         ))}
     </Container>
