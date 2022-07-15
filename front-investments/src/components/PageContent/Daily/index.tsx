@@ -18,7 +18,7 @@ const queryAllDaily = gql`
   }
 `;
 
-export default function CandleStick() {
+export default function DailyGraph() {
   const { data, loading, error } = useQuery(queryAllDaily);
   const [daily, setDaily] = useState<Daily[]>([]);
 
@@ -48,10 +48,26 @@ export default function CandleStick() {
             param.name +
             "</strong>" +
             '<hr size=1 style="margin: 3px 0">',
-          "<strong>Open:</strong> " + param.data[1] + "<br/>",
-          "<strong>Close:</strong> " + param.data[2] + "<br/>",
-          "<strong>Lowest:</strong> " + param.data[3] + "<br/>",
-          "<strong>Highest:</strong> " + param.data[4] + "<br/>",
+          "<strong>Open:</strong> " +
+            param.data[1].toLocaleString("pt-br", {
+              minimumFractionDigits: 2,
+            }) +
+            "<br/>",
+          "<strong>Close:</strong> " +
+            param.data[2].toLocaleString("pt-br", {
+              minimumFractionDigits: 2,
+            }) +
+            "<br/>",
+          "<strong>Lowest:</strong> " +
+            param.data[3].toLocaleString("pt-br", {
+              minimumFractionDigits: 2,
+            }) +
+            "<br/>",
+          "<strong>Highest:</strong> " +
+            param.data[4].toLocaleString("pt-br", {
+              minimumFractionDigits: 2,
+            }) +
+            "<br/>",
           "<strong>Volume:</strong> " +
             daily.find(
               (item: Daily) => item.date === param.name.replaceAll("/", "-")

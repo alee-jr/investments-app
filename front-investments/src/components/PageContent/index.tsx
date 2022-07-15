@@ -1,11 +1,11 @@
-import CandleStick from "./CandleStick";
+import Daily from "./Daily";
 import News from "./News";
 import { Container } from "./styles";
 
 export default function PagesContent() {
   return (
     <Container>
-      <CandleStick />
+      <Daily />
       <News />
     </Container>
   );
