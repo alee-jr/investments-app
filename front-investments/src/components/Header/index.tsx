@@ -1,9 +1,13 @@
 import { Container, Title } from "./styles";
 
-export default function Header() {
+interface HeaderProps {
+  title: string;
+}
+
+export default function Header(props: HeaderProps) {
   return (
     <Container>
-      <Title>Ativo GOOG</Title>
+      <Title>{props.title}</Title>
     </Container>
   );
 }
