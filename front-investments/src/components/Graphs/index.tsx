@@ -9,7 +9,7 @@ export default function Graphs({ options, theme }: ReactEChartsProps) {
   return (
     <ReactECharts
       style={{
-        height: "500px",
+        height: "100%",
         width: "100%",
       }}
       option={options}

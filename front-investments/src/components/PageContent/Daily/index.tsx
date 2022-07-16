@@ -1,22 +1,12 @@
 import { gql, useQuery } from "@apollo/client";
 import _ from "lodash";
 import { useEffect, useState } from "react";
+import { GET_ALL_DAILY } from "../../../graphql/queries";
 import { Daily } from "../../../types/daily.type";
 import Graphs from "../../Graphs";
 import { Container } from "./styles";
 
-const queryAllDaily = gql`
-  query {
-    daily(symbol: "GOOG", outputsize: "compact") {
-      open
-      high
-      low
-      close
-      volume
-      date
-    }
-  }
-`;
+const queryAllDaily = GET_ALL_DAILY;
 
 export default function DailyGraph() {
   const { data, loading, error } = useQuery(queryAllDaily);
