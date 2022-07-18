@@ -31,6 +31,7 @@ const tagColors: TagColorsProps[] = [
 export default function Tag(props: TagProps) {
   return (
     <S.Container
+      data-testid="tag"
       color={tagColors.find((tag) => tag.name === props.label)?.color || ""}
     >
       {props.label != "Neutral" && (
