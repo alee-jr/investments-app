@@ -8,7 +8,7 @@ const pageTagsProps = {
 };
 
 const headerProps = {
-  title: "Ativo GOOG",
+  title: "Ativo GOOG - Alphabet",
 };
 
 export default function Home() {

@@ -1,9 +1,9 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import { GET_ALL_NEWS } from "../../../graphql/queries";
 import { NewsSentiment } from "../../../types/news-sentiment.type";
 import List from "./List";
-import { Container } from "./styles";
+import { Container, Title } from "./styles";
 
 const queryAllNews = GET_ALL_NEWS;
 
@@ -24,6 +24,7 @@ export default function News() {
 
   return (
     <Container>
+      <Title>Últimas de Alphabet</Title>
       <List news={news} />
     </Container>
   );

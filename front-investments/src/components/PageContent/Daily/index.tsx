@@ -1,4 +1,4 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import _ from "lodash";
 import { useEffect, useState } from "react";
 import { GET_ALL_DAILY } from "../../../graphql/queries";
