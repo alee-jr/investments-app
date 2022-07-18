@@ -14,7 +14,7 @@ export default function Card(props: CardProps) {
   return (
     <Container>
       <Group>
-        <Image src={props.banner_image || ""} alt="" />
+        <Image data-testid="image" src={props.banner_image || ""} alt="" />
       </Group>
       <Group>
         <Title target="_blank" href={props.url} rel="noopener noreferrer">
