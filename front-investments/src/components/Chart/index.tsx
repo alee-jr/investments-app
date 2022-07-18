@@ -5,7 +5,7 @@ export interface ReactEChartsProps {
   theme?: "light" | "dark";
 }
 
-export default function Graphs({ options, theme }: ReactEChartsProps) {
+export default function Chart({ options, theme }: ReactEChartsProps) {
   return (
     <ReactECharts
       style={{

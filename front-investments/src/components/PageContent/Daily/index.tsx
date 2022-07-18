@@ -3,7 +3,7 @@ import _ from "lodash";
 import { useEffect, useState } from "react";
 import { GET_ALL_DAILY } from "../../../graphql/queries";
 import { Daily } from "../../../types/daily.type";
-import Graphs from "../../Graphs";
+import Chart from "../../Chart";
 import { Container } from "./styles";
 
 const queryAllDaily = GET_ALL_DAILY;
@@ -119,7 +119,7 @@ export default function DailyGraph() {
   };
   return (
     <Container>
-      <Graphs options={options} />
+      <Chart options={options} />
     </Container>
   );
 }
