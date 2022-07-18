@@ -35,9 +35,7 @@ describe('DailyResolver', () => {
   describe('daily', () => {
     it('should find all dailys', async () => {
       const dailyfound = await resolver.daily({
-        function: 'TIME_SERIES_DAILY',
         symbol: 'GOOG',
-        apikey: '9TVXPG5ISQ47OAVJ',
       });
       expect(dailyfound).toStrictEqual(dailyMockDTO);
     });

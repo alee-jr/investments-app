@@ -35,9 +35,7 @@ describe('NewsSentimentResolver', () => {
   describe('newsSentiment', () => {
     it('should find all news sentiment', async () => {
       const newsSentimentFound = await resolver.newsSentiment({
-        function: 'NEWS_SENTIMENT',
         tickers: 'GOOG',
-        apikey: '9TVXPG5ISQ47OAVJ',
       });
       expect(newsSentimentFound).toStrictEqual(newsSentimentMock);
     });
