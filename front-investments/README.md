@@ -4,8 +4,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 `git clone https://github.com/alee-jr/investments-app.git`
 
-`cd front-investments`
-
 `yarn install`
 
 `yarn dev`
