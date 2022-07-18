@@ -2,7 +2,6 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { MockedProvider } from "@apollo/client/testing";
-import _ from "lodash";
 import "jest-canvas-mock";
 import News from "..";
 import { GET_ALL_NEWS } from "../../../../graphql/queries";

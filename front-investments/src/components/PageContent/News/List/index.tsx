@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-import moment from "moment";
 import { NewsSentiment } from "../../../../types/news-sentiment.type";
 import Card from "./Card";
 import { Container, Content } from "./styles";
