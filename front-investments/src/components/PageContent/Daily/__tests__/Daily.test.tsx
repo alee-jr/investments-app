@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { MockedProvider } from "@apollo/client/testing";
 import _ from "lodash";
@@ -21,7 +21,7 @@ const mocks = [
   },
 ];
 
-describe("graph component", () => {
+describe("daily component", () => {
   it("should render daily", async () => {
     const component = render(
       <MockedProvider mocks={mocks} addTypename={false}>
