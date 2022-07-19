@@ -1,5 +1,6 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { lastValueFrom } from 'rxjs';
 import { BackendError } from '../utils/backend-error';
 import { parseParamsObject } from '../utils/parser';
@@ -12,17 +13,12 @@ export class DailyService {
   private apiUrl: string;
   private apikey: string;
 
-  constructor(private readonly httpService: HttpService) {
-    this.apiUrl = process.env.ALPHA_API_URL;
-    this.apikey = process.env.ALPHA_API_KEY;
-
-    if (!this.apikey) {
-      this.apikey = '9TVXPG5ISQ47OAVJ';
-    }
-
-    if (!this.apiUrl) {
-      this.apiUrl = 'https://www.alphavantage.co/query';
-    }
+  constructor(
+    private readonly httpService: HttpService,
+    private configService: ConfigService,
+  ) {
+    this.apiUrl = this.configService.get<string>('ALPHA_API_URL');
+    this.apikey = this.configService.get<string>('ALPHA_API_KEY');
   }
 
   async findAll(dailyArgs: DailyArgs): Promise<DailyType[]> {

@@ -11,32 +11,13 @@ type DailyType {
   date: String
 }
 
-type TickerSentimentType {
-  ticker: String
-  relevance_score: String
-  ticker_sentiment_score: String
-  ticker_sentiment_label: String
-}
-
-type TopicsType {
-  topic: String
-  relevance_score: String
-}
-
 type NewsSentimentType {
   title: String
   url: String
   time_published: String
-  authors: [String!]!
   summary: String
   banner_image: String
-  source: String
-  source_domain: String
-  category_within_source: String
-  topics: [TopicsType!]
-  overall_sentiment_score: Float
   overall_sentiment_label: String
-  ticker_sentiment: [TickerSentimentType!]
 }
 
 type Query {

@@ -7,6 +7,7 @@ A NextJS frontend and NestJS backend GraphQL that includes daily chart and news 
 - [x] News
 - [x] Sentiment
 - [x] Daily chart
+- [x] docker-compose for front-investments & api-investments
 
 ## Technologies
 
