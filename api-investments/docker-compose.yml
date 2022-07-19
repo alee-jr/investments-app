@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  api-investments:
+    container_name: api-investments
+    env_file:
+      - .env
+    build:
+      context: ./
+    image: api-investments
+    ports:
+      - '3001:3001'
