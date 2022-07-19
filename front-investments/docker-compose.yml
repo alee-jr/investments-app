@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  front-investments:
+    container_name: front-investments
+    env_file:
+      - .env.local
+    build:
+      context: ./
+    image: front-investments
+    ports:
+      - "3000:3000"

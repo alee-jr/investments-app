@@ -1,7 +1,9 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
+import getConfig from "next/config";
+const { publicRuntimeConfig } = getConfig();
 
 const client = new ApolloClient({
-  uri: "http://localhost:3001/graphql",
+  uri: publicRuntimeConfig.API_URL,
   cache: new InMemoryCache({
     addTypename: false,
   }),
